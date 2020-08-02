@@ -7,9 +7,12 @@ import Button from '../../../Components/Button'
 
 const CadastroCategoria = () => {
 
+    const URL = window.location.hostname.includes('localhost')
+    ? 'http://localhost:8080/categorias'
+    : 'https://vem-di-video.herokuapp.com/categorias';
+
     useEffect(() => {
-        console.log('Oiiiii')
-        fetch('http://localhost:8080/categorias')
+        fetch(URL)
             .then(async res => {
                 const data = await res.json()
                 setCategoria([
