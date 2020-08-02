@@ -81,7 +81,7 @@ const CadastroCategoria = () => {
             <Link to='/'>
                 Ir para a home
             </Link>
-        </PageDefault>
+        </PageDefault> 
     )
 }
 
