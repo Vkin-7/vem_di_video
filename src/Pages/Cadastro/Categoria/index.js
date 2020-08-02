@@ -9,7 +9,7 @@ const CadastroCategoria = () => {
 
     useEffect(() => {
         console.log('Oiiiii')
-        fetch('http://localhost:3333/categorias')
+        fetch('http://localhost:8080/categorias')
             .then(async res => {
                 const data = await res.json()
                 setCategoria([
