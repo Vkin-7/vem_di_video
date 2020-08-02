@@ -1,10 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import PageDefault from '../../../Components/PageDefault'
 import { Link } from 'react-router-dom'
 import FormField from '../../../Components/FormField'
+import Button from '../../../Components/Button'
 
 const CadastroCategoria = () => {
+
+    useEffect(() => {
+        console.log('Oiiiii')
+        fetch('http://localhost:3333/categorias')
+            .then(async res => {
+                const data = await res.json()
+                setCategoria([
+                    ...data
+                ])
+            })
+            .catch(e => alert(e))
+    }, [])
+
     const [categoria, setCategoria] = useState([])
 
     const valoresIniciais = {
@@ -58,7 +72,7 @@ const CadastroCategoria = () => {
                     onChange={handleOnChange}
                 />
 
-                <button>Cadastrar</button>
+                <Button>Cadastrar</Button>
             </form>
 
             {categoria.map(
